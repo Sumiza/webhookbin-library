@@ -21,7 +21,7 @@ setuptools.setup(
     classifiers=[
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
-        "License :: GNU GENERAL PUBLIC LICENSE",
+        "License :: OSI Approved :: GNU GENERAL PUBLIC LICENSE",
         "Operating System :: OS Independent",
     ],
     package_dir={"": "src"},
