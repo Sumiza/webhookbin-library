@@ -67,21 +67,33 @@ webbin = WebhookBin()
 
 def makebin(private:str=None):
     """
+    private:\n
+    \t both: token needed to read and write\n
+    \t post: token only needed to write\n
+    \t get: token only needed to read\n\n
+    
     returns a requests response\n
-    response.json()
-    response.text
+    response.json()\n
+    response.text\n
     """
     return webbin.makebin(private=private)
 
 def post(
     data:dict,
     binid:str=None,
-    header:dict=None,
+    headers:dict=None,
     token:str=None):
     """
-    data in dict form
+    data: dict form will be sent as json\n
+    binid: set binid if None will use binid from makebin\n
+    headers: custom headers as dict\n
+    token: set token if None will use token from makebin\n\n
+
+    returns a requests response\n
+    response.json()\n
+    response.text\n
     """
-    return webbin.post(data=data,binid=binid,header=header,token=token)
+    return webbin.post(data=data,binid=binid,header=headers,token=token)
 
 def get(
     binid:str=None,
@@ -89,11 +101,23 @@ def get(
     orderby:str=None,
     delete:bool=True):
     """
+    binid: set binid if None will use binid from makebin\n
+    token: set token if None will use token from makebin\n
+    orderby: acending (oldest first) or decending\n
+    delete: true or false if message should be deleted\n\n
+
     returns a requests response\n
-    response.json()
-    response.text
+    response.json()\n
+    response.text\n
     """
     return webbin.get(binid=binid,token=token,orderby=orderby,delete=delete)
 
 def patch(binid:str=None):
+    """
+    binid: set binid if None will use binid from makebin\n\n
+
+    returns a requests response\n
+    response.json()\n
+    response.text\m
+    """
     return webbin.patch(binid=binid)
